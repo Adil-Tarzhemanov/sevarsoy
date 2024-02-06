@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1270px;
+    width: 100%;
+    margin: 0 auto 50px;
+
+    .numbersTitle {
+        color: #5E5E5E;
+        font-family: Montserrat;
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 40px;
+    }
+
+    .numbers {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .number {
+            position: relative;
+            overflow: hidden;
+            width: 400px;
+            height: 500px;
+            border-radius: 20px;
+
+            .numberImg {
+                max-width: 100%;
+                -moz-transition: all 0.5s;
+                -webkit-transition: all 0.5s;
+                transition: all 0.5s;
+
+                &:hover {
+                    -moz-transform: scale(1.1);
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+
+            .numberDataWrapper {
+                position: absolute;
+                bottom: 41px;
+                left: 46px;
+
+                .title {
+                    height: 37px;
+                    color: #FFF;
+                    font-family: Montserrat;
+                    font-size: 32px;
+                    font-weight: 600;
+                }
+
+                .price {
+                    height: 40px;
+                    color: #FFF;
+                    font-family: Montserrat;
+                    font-size: 13px;
+                    font-weight: 600;
+
+                    span {
+                        height: 40px;
+                        color: #C8A654;
+                        font-family: Montserrat;
+                        font-size: 32px;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}

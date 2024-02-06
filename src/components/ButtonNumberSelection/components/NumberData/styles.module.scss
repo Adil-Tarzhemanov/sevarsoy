@@ -1,0 +1,54 @@
+.numberData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+
+    .titleAndDelete {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .numberDataTitle {
+            font-size: 16px;
+            align-self: flex-start;
+        }
+
+        .deleteBtn {
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+
+
+    .humansWrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .adultsWrapper {
+            .adultsTitle {
+                font-size: 14px;
+            }
+
+            .adults {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                border: 1px solid black;
+                width: 150px;
+                height: 40px;
+
+                .minus {
+                    font-size: 26px;
+                }
+
+                .plus {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
