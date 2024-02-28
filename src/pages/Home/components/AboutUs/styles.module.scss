@@ -5,40 +5,40 @@
 
     .content {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        //gap: 93px;
+        align-items: flex-start;
+        width: 100%;
 
-        .titleAndImg {
+        .backgroundAndImg {
             position: relative;
+            width: 100%;
 
-            .title {
+            .blueBack {
                 position: absolute;
-                top: -30px;
-                left: 50%;
-                color: #5E5E5E;
-                font-family: Montserrat;
-                font-size: 64px;
-                font-weight: 700;
-                line-height: normal;
-                letter-spacing: 9.6px;
+                top: -100px;
+                right: 50%;
+                z-index: 0;
+                width: 100vw;
+                height: 863px;
+                background: linear-gradient(to right, #98BDE2, white);
+                background-size: 45% 100%;
+                background-position: 100% 0;
             }
 
             .aboutUsImg {
-                max-height: 659px;
+                position: relative;
+                max-height: 670px;
                 height: 100%;
                 width: auto;
                 border-radius: 20px;
             }
         }
 
-        .text {
-            max-width: 419px;
-            color: #5E5E5E;
-            font-family: Montserrat;
-            font-size: 20px;
-            font-weight: 500;
-            letter-spacing: 3px;
+        .infoWrapper {
+            .head {
+                margin-bottom: 34px;
+                width: 450px;
+            }
         }
+
     }
 }
