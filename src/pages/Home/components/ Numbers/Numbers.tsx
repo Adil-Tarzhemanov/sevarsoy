@@ -36,7 +36,7 @@ const Numbers: FC = () => {
                   <br />
                   Кровать:{" "}
                   <img
-                    src="/assets/home/numbers/bed.png"
+                    src="assets/home/numbers/bed.png"
                     alt="bed"
                     className={styles.bedImg}
                   />{" "}
