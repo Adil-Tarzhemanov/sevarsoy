@@ -53,7 +53,7 @@ const Main: FC = () => {
   return (
     <div className={styles.container}>
       <video autoPlay muted loop className={styles.videoBackground}>
-        <source src="assets/home/mainVideo.mp4" type="video/mp4" />
+        <source src="./assets/home/mainVideo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className={styles.content}>
