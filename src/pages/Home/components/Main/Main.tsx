@@ -42,7 +42,7 @@ const Main: FC = () => {
     if (inViewText && displayedTitle.length < TITLE.length) {
       const intervalId = setInterval(() => {
         setDisplayedTitle((prev) => TITLE.substring(0, prev.length + 1));
-      }, 100); // Регулируйте скорость печатания изменением интервала
+      }, 100);
 
       return () => clearInterval(intervalId);
     }
