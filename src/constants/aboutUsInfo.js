@@ -1,7 +1,7 @@
 export const aboutUsInfo = [
   {
     alt: "mountains",
-    src: "/assets/home/aboutUs/mountains.png",
+    src: "assets/home/aboutUs/mountains.png",
     title: "Расположение",
     text:
       " Санаторий занимает территорию в 6 га и находится на возвышенности.\n" +
@@ -12,7 +12,7 @@ export const aboutUsInfo = [
   },
   {
     alt: "sheet",
-    src: "/assets/home/aboutUs/sheet.png",
+    src: "assets/home/aboutUs/sheet.png",
     title: "Лечение и отдых",
     text:
       "Лечебным фактором санатория является чистый горный воздух в\n" +

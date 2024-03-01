@@ -23,7 +23,7 @@ const AboutUs: FC = () => {
           <div className={styles.blueBack}></div>
           <motion.img
             alt="Sevarsoy"
-            src="/assets/home/aboutUs/back.png"
+            src="assets/home/aboutUs/back.png"
             className={styles.aboutUsImg}
             animate={inViewImg && { y: 0, x: 0, opacity: 1 }}
             initial={{ y: -200, x: -200, opacity: 0 }}
