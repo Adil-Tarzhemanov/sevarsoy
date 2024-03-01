@@ -1,6 +1,6 @@
 export const news = [
   {
-    img: "../../assets/home/news/new.png",
+    img: "../assets/home/news/new.png",
     date: "декабрь 2023",
     title:
       "Достигнута договоренность о создании Евразийского Альянса горных курортов",
