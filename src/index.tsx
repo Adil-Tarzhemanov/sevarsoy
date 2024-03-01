@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/sevarsoy">
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <App />
