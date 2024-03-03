@@ -3,6 +3,7 @@ import { FC } from "react";
 import { numbers } from "../../../../constants/numbers";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import HeadChapter from "../../components/HeadChapter/HeadChapter";
 
 const Numbers: FC = () => {
   const { ref: refNumbers, inView: inViewNumbers } = useInView({
@@ -13,8 +14,7 @@ const Numbers: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.titleWrapper}>
-        {/*<div className={styles.line}></div>*/}
-        <h2 className={styles.numbersTitle}>Номера</h2>
+        <HeadChapter />
       </div>
       <motion.div
         className={styles.numbers}

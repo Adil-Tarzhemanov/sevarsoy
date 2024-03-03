@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .line {
+        width: 70px;
+        height: 5px;
+        //background: white;
+        background: #032E5C;
+    }
+
+    .numbersTitle {
+        //color: white;
+        color: #032E5C;
+        font-family: Montserrat;
+        font-size: 48px;
+        font-weight: 700;
+    }
+}

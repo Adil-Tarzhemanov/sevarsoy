@@ -4,6 +4,7 @@ import { news } from "../../../../constants/news";
 import OneNew from "../../../components/OneNew/OneNew";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import HeadChapter from "../../components/HeadChapter/HeadChapter";
 
 const News: FC = () => {
   const { ref: refBigNews, inView: inViewBigNews } = useInView({
@@ -18,7 +19,7 @@ const News: FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.newsTitle}>Новости</h2>
+      <HeadChapter />
       <div className={styles.news}>
         <motion.div
           className={styles.bigNew}
