@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/sevarsoy/static/css/main.b50b50bd.css",
-    "main.js": "/sevarsoy/static/js/main.2c92495a.js",
+    "main.css": "/sevarsoy/static/css/main.77f7264d.css",
+    "main.js": "/sevarsoy/static/js/main.04fb6e94.js",
     "index.html": "/sevarsoy/index.html",
-    "main.b50b50bd.css.map": "/sevarsoy/static/css/main.b50b50bd.css.map",
-    "main.2c92495a.js.map": "/sevarsoy/static/js/main.2c92495a.js.map"
+    "main.77f7264d.css.map": "/sevarsoy/static/css/main.77f7264d.css.map",
+    "main.04fb6e94.js.map": "/sevarsoy/static/js/main.04fb6e94.js.map"
   },
   "entrypoints": [
-    "static/css/main.b50b50bd.css",
-    "static/js/main.2c92495a.js"
+    "static/css/main.77f7264d.css",
+    "static/js/main.04fb6e94.js"
   ]
 }
