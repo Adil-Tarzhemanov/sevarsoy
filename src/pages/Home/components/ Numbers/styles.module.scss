@@ -6,12 +6,29 @@
     width: 100%;
     margin: 0 auto 50px;
 
-    .numbersTitle {
-        color: #5E5E5E;
-        font-family: Montserrat;
-        font-size: 48px;
-        font-weight: 700;
-        margin-bottom: 40px;
+    .titleWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        //width: 100vw;
+        //height: 220px;
+        //background: linear-gradient(rgba(152, 189, 226, 1), rgba(142, 189, 210, 1), white);
+
+        .line {
+            width: 70px;
+            height: 5px;
+            //background: white;
+            background: #032E5C;
+        }
+
+        .numbersTitle {
+            //color: white;
+            color: #032E5C;
+            font-family: Montserrat;
+            font-size: 48px;
+            font-weight: 700;
+        }
     }
 
     .numbers {

@@ -12,7 +12,10 @@ const Numbers: FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.numbersTitle}>Номера</h2>
+      <div className={styles.titleWrapper}>
+        {/*<div className={styles.line}></div>*/}
+        <h2 className={styles.numbersTitle}>Номера</h2>
+      </div>
       <motion.div
         className={styles.numbers}
         ref={refNumbers}
@@ -42,6 +45,7 @@ const Numbers: FC = () => {
                   />{" "}
                   {number.capacity}х
                 </p>
+                {/*<button>Подробнее</button>*/}
               </div>
             </div>
           );

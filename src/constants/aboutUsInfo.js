@@ -1,7 +1,7 @@
 export const aboutUsInfo = [
   {
     alt: "mountains",
-    src: "assets/home/aboutUs/mountains.png",
+    src: "./assets/home/aboutUs/mountains.png",
     title: "Расположение",
     text:
       " Санаторий занимает территорию в 6 га и находится на возвышенности.\n" +
