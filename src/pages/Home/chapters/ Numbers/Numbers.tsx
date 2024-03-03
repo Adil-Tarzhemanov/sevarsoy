@@ -14,7 +14,7 @@ const Numbers: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.titleWrapper}>
-        <HeadChapter />
+        <HeadChapter title="Номера" />
       </div>
       <motion.div
         className={styles.numbers}

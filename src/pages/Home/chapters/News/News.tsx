@@ -19,7 +19,7 @@ const News: FC = () => {
 
   return (
     <div className={styles.container}>
-      <HeadChapter />
+      <HeadChapter title="Новости" />
       <div className={styles.news}>
         <motion.div
           className={styles.bigNew}
