@@ -27,11 +27,11 @@ const Header: FC = () => {
     <header
       className={classNames(styles.header, { [styles.scrolling]: scrolling })}
     >
-      {scrolling ? (
-        <Logo color="#5E5E5E" width={135} />
-      ) : (
-        <Logo color="white" width={135} />
-      )}
+      {/*{scrolling ? (*/}
+      {/*  <Logo color="#5E5E5E" width={135} />*/}
+      {/*) : (*/}
+      <Logo color="white" width={135} />
+      {/*)}*/}
       <ul className={styles.list}>
         {headerList.map((element) => (
           <Link to={element.to} smooth offset={-100} duration={500}>

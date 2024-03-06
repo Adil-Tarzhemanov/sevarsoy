@@ -7,24 +7,18 @@ import { motion } from "framer-motion";
 import HeadChapter from "../../components/HeadChapter/HeadChapter";
 
 const News: FC = () => {
-  const { ref: refBigNews, inView: inViewBigNews } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const { ref: refSmallNews, inView: inViewSmallNews } = useInView({
+  const { ref: refNews, inView: inViewNews } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   return (
-    <div className={styles.container} id="news">
+    <div className={styles.container} id="news" ref={refNews}>
       <HeadChapter title="Новости" color={false} />
       <div className={styles.news}>
         <motion.div
           className={styles.bigNew}
-          ref={refBigNews}
-          animate={inViewBigNews && { y: 0, x: 0, opacity: 1 }}
+          animate={inViewNews && { y: 0, x: 0, opacity: 1 }}
           initial={{ y: 300, x: -300, opacity: 0 }}
           transition={{ duration: 0.8 }}
         >
@@ -32,8 +26,7 @@ const News: FC = () => {
         </motion.div>
         <motion.div
           className={styles.smallNews}
-          ref={refSmallNews}
-          animate={inViewSmallNews && { y: 0, x: 0, opacity: 1 }}
+          animate={inViewNews && { y: 0, x: 0, opacity: 1 }}
           initial={{ y: 300, x: 300, opacity: 0 }}
           transition={{ duration: 0.8 }}
         >

@@ -52,10 +52,12 @@
                     position: relative;
                     max-width: 220px;
                     max-height: 220px;
+                    transition: all 1s;
+                }
 
-                    &:hover {
+                &:hover {
+                    .restImg {
                         transform: scale(1.05);
-                        transition: 1s;
                     }
                 }
 

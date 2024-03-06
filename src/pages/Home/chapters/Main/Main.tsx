@@ -23,7 +23,7 @@ const Main: FC = () => {
   };
   const {
     data: roomsDataResponse,
-    isError,
+    // isError,
     mutate,
   } = useRoomsDataByMutation(roomsDataRequest);
 

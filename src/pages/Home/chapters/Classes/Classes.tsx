@@ -3,10 +3,17 @@ import { FC, useState } from "react";
 import { classes } from "../../../../constants/сlasses";
 import HeadChapter from "../../components/HeadChapter/HeadChapter";
 import classNames from "classnames";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 const Classes: FC = () => {
   const [moreRests, setMoreRests] = useState(false);
   const [visibleRests, setVisibleRests] = useState(5);
+
+  const { ref: refClasses, inView: inViewClasses } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
   const onMoreRests = async () => {
     setMoreRests(true);
@@ -18,13 +25,28 @@ const Classes: FC = () => {
   return (
     <div className={styles.container} id="classes">
       <HeadChapter title="Чем заняться на курорте" color={false} />
-      <div className={styles.content}>
+      <div className={styles.content} ref={refClasses}>
         <div className={styles.rests}>
-          {classes.slice(0, visibleRests).map((rest) => (
-            <div
+          {classes.slice(0, visibleRests).map((rest, index) => (
+            <motion.div
               className={classNames(styles.restWrapper, {
                 [styles.moreRestsActive]: moreRests,
               })}
+              animate={
+                inViewClasses && visibleRests <= 5
+                  ? { y: 0, x: 0, opacity: 1 }
+                  : { opacity: 1, y: 0 }
+              }
+              initial={
+                visibleRests <= 5
+                  ? { y: rest.y, x: rest.x, opacity: 0 }
+                  : { opacity: 0, y: 20 }
+              }
+              transition={
+                visibleRests <= 5
+                  ? { duration: 0.8 }
+                  : { duration: 0.5, delay: index * 0.1 }
+              }
             >
               <div className={styles.restBackground}></div>
               <h2 className={styles.restTitle}>{rest.title}</h2>
@@ -34,7 +56,7 @@ const Classes: FC = () => {
                 key={rest.id}
                 className={classNames(styles.restImg)}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
         {visibleRests < classes.length && (
