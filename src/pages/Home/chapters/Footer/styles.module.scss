@@ -15,24 +15,66 @@
 
         .content {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+            gap: 219px;
             position: absolute;
             //left: 85px;
             bottom: 85px;
 
+            .connection {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
-            .numbers {
-                position: absolute;
-                top: 80px;
-                .number {
-                    color: #FFF;
-                    font-family: Montserrat;
-                    font-size: 14px;
-                    line-height: 15px;
-                    font-weight: 600;
+                .socialMedias {
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+                    margin-top: -33px;
+
+                    .socialMedia {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+
+
+                .numbers {
+                    margin-top: 17px;
+                    .number {
+                        color: #FFF;
+                        font-family: Montserrat;
+                        font-size: 14px;
+                        line-height: 15px;
+                        font-weight: 600;
+                    }
                 }
             }
+
+            .navigation {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                color: white;
+                padding-top: 20px;
+
+                .head {
+                    margin-bottom: 20px;
+                    font-size: 22px;
+                }
+
+                .list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    text-decoration: none;
+
+                    .listElement {
+                        font-weight: 600;
+                    }
+                }
+            }
+
         }
     }
 }

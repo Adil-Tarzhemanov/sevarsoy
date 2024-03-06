@@ -2,7 +2,6 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://adil-tarzhemanov.github.io/sevarsoy",
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@emotion/react": "^11.11.1",
@@ -25,6 +24,7 @@
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.0",
     "react-slick": "^0.30.0",
     "sass": "^1.69.5",
     "slick-carousel": "^1.8.1",
@@ -36,6 +36,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
+    "ngrok": "ngrok http --domain=pleased-decent-aphid.ngrok-free.app 3000",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -58,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-scroll": "^1.8.10",
     "@types/react-slick": "^0.23.13",
     "eslint": "^8.56.0",
     "gh-pages": "^6.1.1",

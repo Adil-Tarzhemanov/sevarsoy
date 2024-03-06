@@ -17,7 +17,7 @@ const AboutUs: FC = () => {
   });
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="aboutUs">
       <div className={styles.content}>
         <div className={styles.backgroundAndImg} ref={refImg}>
           <div className={styles.blueBack}></div>
@@ -37,9 +37,11 @@ const AboutUs: FC = () => {
           initial={{ y: -200, x: 200, opacity: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className={styles.head}>
-            Горный курорт мирового класса в Узбекистане
-          </h2>
+          <div className={styles.headWrapper}>
+            <h2 className={styles.head}>
+              Горный курорт мирового класса в Узбекистане
+            </h2>
+          </div>
           {aboutUsInfo.map((element: any) => (
             <AboutUsInfo {...element} />
           ))}
@@ -48,4 +50,5 @@ const AboutUs: FC = () => {
     </div>
   );
 };
+
 export default AboutUs;

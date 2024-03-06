@@ -48,7 +48,7 @@ const Main: FC = () => {
     }
   }, [inViewText, displayedTitle]);
 
-  if (isError) return <div>Error fetching data</div>;
+  // if (isError) return <div>Error fetching data</div>;
 
   return (
     <div className={styles.container}>

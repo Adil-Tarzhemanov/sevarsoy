@@ -18,8 +18,8 @@ const News: FC = () => {
   });
 
   return (
-    <div className={styles.container}>
-      <HeadChapter title="Новости" />
+    <div className={styles.container} id="news">
+      <HeadChapter title="Новости" color={false} />
       <div className={styles.news}>
         <motion.div
           className={styles.bigNew}

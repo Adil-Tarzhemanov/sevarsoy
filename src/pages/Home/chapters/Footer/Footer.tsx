@@ -1,25 +1,65 @@
-import styles from './styles.module.scss'
-import {FC} from "react"
+import styles from "./styles.module.scss";
+import { FC } from "react";
 import Logo from "../../../../components/Header/components/Logo/Logo.tsx";
-
-type FooterProps = {}
+import { Link } from "react-scroll";
 
 const Footer: FC = () => {
-    return (
-        <div className={styles.container}>
-            <div className={styles.wrapper}>
-                <div className={styles.content}>
-                    <div className={styles.logo}>
-                        <Logo color='white' width={185} />
-                    </div>
-                    {/*<div className={styles.socialMedia}></div>*/}
-                    <div className={styles.numbers}>
-                        <p className={styles.number}>+99895 001 11 44</p>
-                        <p className={styles.number}>+99895 001 11 88</p>
-                    </div>
-                </div>
+  return (
+    <div className={styles.container} id="contacts">
+      <div className={styles.wrapper}>
+        <div className={styles.content}>
+          <div className={styles.connection}>
+            <div className={styles.logo}>
+              <Logo color="white" width={215} />
             </div>
+            <div className={styles.socialMedias}>
+              <img
+                alt="sm"
+                src="assets/home/footer/telegram.png"
+                className={styles.socialMedia}
+              />
+              <img
+                alt="sm"
+                src="assets/home/footer/instagram.png"
+                className={styles.socialMedia}
+              />
+              <img
+                alt="sm"
+                src="assets/home/footer/facebook.png"
+                className={styles.socialMedia}
+              />
+            </div>
+            <div className={styles.numbers}>
+              <p className={styles.number}>+99895 001 11 44</p>
+            </div>
+          </div>
+          <div className={styles.navigation}>
+            <h3 className={styles.head}>Чем заняться?</h3>
+            <ul className={styles.list}>
+              <li className={styles.listElement}>Гидроаэро-ионотерапия</li>
+              <li className={styles.listElement}>Соляная пещера</li>
+              <li className={styles.listElement}>Массаж</li>
+              <li className={styles.listElement}>Бассейн</li>
+            </ul>
+          </div>
+          <div className={styles.navigation} style={{ marginLeft: -119 }}>
+            <h3 className={styles.head}>О курорте</h3>
+            <ul className={styles.list}>
+              <Link to="aboutUs" smooth offset={-100} duration={500}>
+                <li className={styles.listElement}>О нас</li>
+              </Link>
+              <Link to="numbers" smooth offset={-100} duration={500}>
+                <li className={styles.listElement}>Номера</li>
+              </Link>
+              <Link to="news" smooth offset={-100} duration={500}>
+                <li className={styles.listElement}>Новости</li>
+              </Link>
+            </ul>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
+
 export default Footer;

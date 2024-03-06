@@ -1,17 +1,22 @@
 export const headerList = [
-    {
-        title: "О нас"
-    },
-    {
-        title: "Чем заняться"
-    },
-    {
-        title: "Номера"
-    },
-    {
-        title: "Новости"
-    },
-    {
-        title: "Контакты"
-    },
-]
+  {
+    title: "О нас",
+    to: "aboutUs",
+  },
+  {
+    title: "Чем заняться",
+    to: "classes",
+  },
+  {
+    title: "Номера",
+    to: "numbers",
+  },
+  {
+    title: "Новости",
+    to: "news",
+  },
+  {
+    title: "Контакты",
+    to: "contacts",
+  },
+];

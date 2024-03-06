@@ -13,10 +13,10 @@ const Home: FC = () => {
     <div className={styles.container}>
       <Main />
       <AboutUs />
-      {/*<Classes />*/}
+      <Classes />
       <Numbers />
       <News />
-      {/*<Footer />*/}
+      <Footer />
     </div>
   );
 };

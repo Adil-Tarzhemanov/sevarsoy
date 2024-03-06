@@ -5,6 +5,8 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import HeadChapter from "../../components/HeadChapter/HeadChapter";
 
+//  "homepage": "https://adil-tarzhemanov.github.io/sevarsoy",
+
 const Numbers: FC = () => {
   const { ref: refNumbers, inView: inViewNumbers } = useInView({
     triggerOnce: true,
@@ -12,9 +14,9 @@ const Numbers: FC = () => {
   });
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="numbers">
       <div className={styles.titleWrapper}>
-        <HeadChapter title="Номера" />
+        <HeadChapter title="Номера" color />
       </div>
       <motion.div
         className={styles.numbers}

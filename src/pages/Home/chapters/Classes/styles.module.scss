@@ -3,14 +3,99 @@
     flex-direction: column;
     align-items: center;
     max-width: 1400px;
-    min-height: 920px;
+    min-height: 623px;
     margin: 0 auto;
+    padding-top: 50px;
 
-    .classesTitle {
-        color: #5E5E5E;
-        font-family: Montserrat;
-        font-size: 48px;
-        font-weight: 700;
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        margin-top: 33px;
+
+        .rests {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            min-height: 220px;
+            padding-bottom: 70px;
+
+            .restWrapper {
+                position: relative;
+                width: 220px;
+                max-height: 220px;
+
+                //.restBackground {
+                //    position: absolute;
+                //    top: 0;
+                //    left: 0;
+                //    width: 100%;
+                //    height: 100%;
+                //    background: #98bde2;
+                //    border-radius: 19px;
+                //}
+
+                .restTitle {
+                    position: absolute;
+                    z-index: 2;
+                    bottom: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: white;
+                    text-align: center;
+                    line-height: 25px
+                }
+
+                .restImg {
+                    position: relative;
+                    max-width: 220px;
+                    max-height: 220px;
+
+                    &:hover {
+                        transform: scale(1.05);
+                        transition: 1s;
+                    }
+                }
+
+                &:nth-child(odd) {
+                    margin-bottom: 50px;
+                }
+
+                &:nth-child(even) {
+                    margin-top: 50px;
+                }
+            }
+
+            .moreRestsActive {
+
+                &:nth-child(even) {
+                    margin-top: 0;
+                    transition: 1s;
+                }
+
+                &:nth-child(odd) {
+                    margin-bottom: 0;
+                    transition: 1s;
+                }
+            }
+        }
+
+        .moreRestsBtn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: -45px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+
+            .arrow {
+                padding-top: 2px;
+                width: 15px;
+            }
+        }
     }
 
     .mainSwiper {
