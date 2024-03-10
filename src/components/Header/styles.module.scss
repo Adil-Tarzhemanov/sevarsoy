@@ -47,6 +47,23 @@
     }
 }
 
+.secondHeader {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .list {
+        .listElement {
+            color: #032E5C;
+        }
+    }
+
+    .languages {
+        .active {
+            color: #032E5C;
+            background: #98BDE2;
+        }
+    }
+}
+
 .scrolling {
     background: #98BDE2;
 
@@ -63,3 +80,4 @@
         }
     }
 }
+

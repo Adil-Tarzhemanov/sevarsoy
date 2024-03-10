@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import { FC } from "react";
-import { numbers } from "../../../../constants/numbers";
+import { numbers } from "../../../../constants/home/numbers";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import HeadChapter from "../../components/HeadChapter/HeadChapter";

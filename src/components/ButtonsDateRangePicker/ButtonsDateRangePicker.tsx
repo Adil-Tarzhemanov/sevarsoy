@@ -15,7 +15,7 @@ const ButtonDateRangePicker: FC = () => {
         <div className={styles.arrivalWrapper}>
           <img
             alt="calendar"
-            src="assets/home/main/calendar.png"
+            src="/assets/home/main/calendar.png"
             className={styles.calendarImg}
           />
           <div className={styles.titleAndDate}>
@@ -28,7 +28,7 @@ const ButtonDateRangePicker: FC = () => {
         <div className={styles.arrivalWrapper}>
           <img
             alt="calendar"
-            src="assets/home/main/calendar.png"
+            src="/assets/home/main/calendar.png"
             className={styles.calendarImg}
           />
           <div className={styles.titleAndDate}>

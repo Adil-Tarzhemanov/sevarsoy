@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import { FC } from "react";
-import { news } from "../../../../constants/news";
+import { news } from "../../../../constants/home/news";
 import OneNew from "../../../components/OneNew/OneNew";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";

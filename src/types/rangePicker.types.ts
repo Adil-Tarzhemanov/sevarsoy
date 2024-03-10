@@ -1,5 +1,3 @@
-import dayjs from "dayjs";
-
 export interface IPickerDates {
-    dates: any
+  dates: any;
 }

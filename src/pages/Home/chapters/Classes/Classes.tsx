@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import { FC, useState } from "react";
-import { classes } from "../../../../constants/сlasses";
+import { classes } from "../../../../constants/home/сlasses";
 import HeadChapter from "../../components/HeadChapter/HeadChapter";
 import classNames from "classnames";
 import { useInView } from "react-intersection-observer";

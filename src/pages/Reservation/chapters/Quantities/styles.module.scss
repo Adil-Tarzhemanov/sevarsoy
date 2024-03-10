@@ -1,0 +1,20 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .head {
+        color: #032E5C;
+        font-size: 55px;
+        font-weight: 700;
+        font-family: Montserrat;
+    }
+
+    .quantities {
+        display: flex;
+        gap: 81px;
+        margin-top: 25px;
+    }
+}

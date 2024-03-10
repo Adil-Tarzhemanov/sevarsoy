@@ -1,0 +1,29 @@
+.quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    width: 98px;
+
+    .background {
+        width: 68px;
+        height: 68px;
+        background: #98bde2;
+        border-radius: 50%;
+        filter: blur(3px);
+    }
+
+    .quantityImg {
+        position: absolute;
+        top: 17px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;
+        font-family: Montserrat;
+        line-height: normal;
+    }
+}

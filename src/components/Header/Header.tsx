@@ -1,12 +1,14 @@
 import styles from "./styles.module.scss";
 import { FC, useEffect, useState } from "react";
-import { headerList } from "../../constants/headerList";
+import { headerList } from "../../constants/home/headerList";
 import classNames from "classnames";
 import Logo from "./components/Logo/Logo.tsx";
 import { Link } from "react-scroll";
+import { useLocation } from "react-router-dom";
 
 const Header: FC = () => {
   const [scrolling, setScrolling] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,13 +27,15 @@ const Header: FC = () => {
   }, [scrolling]);
   return (
     <header
-      className={classNames(styles.header, { [styles.scrolling]: scrolling })}
+      className={classNames(styles.header, {
+        [styles.scrolling]: scrolling,
+        [styles.secondHeader]: location.pathname !== "/",
+      })}
     >
-      {/*{scrolling ? (*/}
-      {/*  <Logo color="#5E5E5E" width={135} />*/}
-      {/*) : (*/}
-      <Logo color="white" width={135} />
-      {/*)}*/}
+      <Logo
+        color={location.pathname !== "/" && scrolling ? "white" : "#032E5C"}
+        width={135}
+      />
       <ul className={styles.list}>
         {headerList.map((element) => (
           <Link to={element.to} smooth offset={-100} duration={500}>

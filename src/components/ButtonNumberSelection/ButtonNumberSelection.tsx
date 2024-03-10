@@ -14,7 +14,7 @@ const ButtonNumberSelection: FC = () => {
         <div className={styles.quantityWrapper}>
           <img
             alt="human"
-            src="assets/home/main/human.png"
+            src="/assets/home/main/human.png"
             className={styles.calendarImg}
           />
           <div className={styles.titleAndQuantity}>

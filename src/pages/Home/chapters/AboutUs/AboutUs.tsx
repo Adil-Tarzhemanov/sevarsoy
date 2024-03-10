@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import { FC } from "react";
 import AboutUsInfo from "./components/aboutUsInfo/AboutUsInfo";
-import { aboutUsInfo } from "../../../../constants/aboutUsInfo";
+import { aboutUsInfo } from "../../../../constants/home/aboutUsInfo";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
