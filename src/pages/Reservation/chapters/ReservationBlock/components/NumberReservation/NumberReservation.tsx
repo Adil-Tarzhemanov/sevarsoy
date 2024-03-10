@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Pagination } from "swiper/modules";
-import { numberImages } from "../../../../../../constants/reservation/numberImages";
+import {} from "../../../../../../constants/reservation/numberImages";
 import { furniture } from "../../../../../../constants/reservation/furnitures";
 import FurnitureElement from "../FurnitureElement/FurnitureElement";
 
@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 
-const NumberReservation: FC = () => {
+const NumberReservation: FC<any> = ({ title, count, price, imgs, path }) => {
   return (
     <div className={styles.numberReservation}>
       <div className={styles.sliderAndInfo}>
@@ -31,11 +31,11 @@ const NumberReservation: FC = () => {
             modules={[EffectCube, Pagination]}
             className={styles.mySwiper}
           >
-            {numberImages.map((img: any) => (
+            {imgs.map((img: any) => (
               <SwiperSlide className={styles.swiperSlide}>
                 <img
                   alt="number"
-                  src="/assets/reservation/numbers/standart/1.png"
+                  src={`/assets/reservation/numbers/${path}/1.png`}
                   className={styles.numberImg}
                 />
               </SwiperSlide>
@@ -43,8 +43,8 @@ const NumberReservation: FC = () => {
           </Swiper>
         </div>
         <div className={styles.info}>
-          <h2 className={styles.title}>STANDART</h2>
-          <h4 className={styles.humansCapacity}>2-х местный</h4>
+          <h2 className={styles.title}>{title}</h2>
+          <h4 className={styles.humansCapacity}>{count}-х местный</h4>
           <div className={styles.furniture}>
             {furniture.map((element) => (
               <FurnitureElement {...element} />
@@ -63,7 +63,7 @@ const NumberReservation: FC = () => {
       <div className={styles.reservation}>
         <div className={styles.priceWrapper}>
           <h3 className={styles.priceText}>Стоимость за 1 ночь</h3>
-          <h2 className={styles.price}>2 300 000 сум</h2>
+          <h2 className={styles.price}>{price} сум</h2>
         </div>
         <div className={styles.completion}>
           <div className={styles.conditionsAndQuests}>

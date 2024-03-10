@@ -14,8 +14,8 @@ const ReservationBlock: FC = () => {
       </div>
       <div className={styles.content}>
         <div className={styles.numbers}>
-          {reservNumbers.map((number) => (
-            <NumberReservation />
+          {reservNumbers.map((number: any) => (
+            <NumberReservation {...number} />
           ))}
         </div>
         <div className={styles.reservationResult}>
