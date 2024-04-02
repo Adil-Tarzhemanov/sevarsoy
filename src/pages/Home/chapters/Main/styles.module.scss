@@ -54,7 +54,16 @@
             .rangeDatePicker {
                 display: flex;
                 gap: 5px;
+                position: relative;
                 z-index: 1;
+
+                .linkToReserv {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 70px;
+                    height: 40px;
+                }
 
                 .searchBtn {
                     width: 70px;

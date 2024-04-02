@@ -1,63 +1,29 @@
 import styles from "./styles.module.scss";
 import { FC } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCube, Pagination } from "swiper/modules";
-import {} from "../../../../../../constants/reservation/numberImages";
 import { furniture } from "../../../../../../constants/reservation/furnitures";
 import FurnitureElement from "../FurnitureElement/FurnitureElement";
+import NumberSlider from "./components/number-slider/NumberSlider";
+import ExtraInNumber from "./components/extra-in-number/ExtraInNumber";
+import { useAppDispatch, useAppSelector } from "../../../../../../store/hooks";
+import { typeSelection } from "../../../../../../store/slices/rangePicker.slice";
 
-import "swiper/css";
-import "swiper/css/effect-cube";
-import "swiper/css/pagination";
+const NumberReservation: FC<any> = ({ type, count, price, imgs, index }) => {
+  const numbers = useAppSelector((state) => state.rangePickerReducer.numbers);
+  const dispatch = useAppDispatch();
 
-const NumberReservation: FC<any> = ({ title, count, price, imgs, path }) => {
   return (
     <div className={styles.numberReservation}>
       <div className={styles.sliderAndInfo}>
-        <div className={styles.swiper}>
-          <Swiper
-            grabCursor={true}
-            effect={"creative"}
-            creativeEffect={{
-              prev: {
-                shadow: true,
-                translate: ["-20%", 0, -1],
-              },
-              next: {
-                translate: ["100%", 0, 0],
-              },
-            }}
-            pagination={true}
-            modules={[EffectCube, Pagination]}
-            className={styles.mySwiper}
-          >
-            {imgs.map((img: any) => (
-              <SwiperSlide className={styles.swiperSlide}>
-                <img
-                  alt="number"
-                  src={`/assets/reservation/numbers/${path}/1.png`}
-                  className={styles.numberImg}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <NumberSlider imgs={imgs} path={type.toLowerCase()} />
         <div className={styles.info}>
-          <h2 className={styles.title}>{title}</h2>
+          <h2 className={styles.title}>{type}</h2>
           <h4 className={styles.humansCapacity}>{count}-х местный</h4>
           <div className={styles.furniture}>
             {furniture.map((element) => (
-              <FurnitureElement {...element} />
+              <FurnitureElement {...element} key={element.title} />
             ))}
           </div>
-          <div className={styles.extra}>
-            <button className={styles.extraElement}>
-              Дополнительный <br /> матрас
-            </button>
-            <button className={styles.extraElement}>
-              Дополнительное <br /> питание
-            </button>
-          </div>
+          <ExtraInNumber index={index} />
         </div>
       </div>
       <div className={styles.reservation}>
@@ -73,9 +39,33 @@ const NumberReservation: FC<any> = ({ title, count, price, imgs, path }) => {
                 Оплата банковской картой
               </button>
             </div>
-            <button className={styles.countQuests}>Количество гостей</button>
           </div>
-          <button className={styles.chooseBtn}>Выбрать</button>
+          <div className={styles.chooses}>
+            {numbers.map((number: any) => {
+              return (
+                number.type === "none" && (
+                  <div className={styles.chooseWrapper}>
+                    <h4 className={styles.counts}>
+                      {number.adults} взрослых, {number.childs} детей
+                    </h4>
+                    <button
+                      className={styles.chooseBtn}
+                      onClick={() =>
+                        dispatch(
+                          typeSelection({
+                            id: number.index - 1,
+                            type: type.toLowerCase(),
+                          }),
+                        )
+                      }
+                    >
+                      Выбрать
+                    </button>
+                  </div>
+                )
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

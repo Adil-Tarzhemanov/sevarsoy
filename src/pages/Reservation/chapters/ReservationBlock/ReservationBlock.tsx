@@ -3,9 +3,17 @@ import { FC } from "react";
 import ButtonDateRangePicker from "../../../../components/ButtonsDateRangePicker/ButtonsDateRangePicker";
 import ButtonNumberSelection from "../../../../components/ButtonNumberSelection/ButtonNumberSelection";
 import NumberReservation from "./components/NumberReservation/NumberReservation";
-import { reservNumbers } from "../../../../constants/reservation/reservNumbers";
+import ResultReserv from "../ResultReserv/ResultReserv";
+import { useAppSelector } from "../../../../store/hooks";
 
 const ReservationBlock: FC = () => {
+  const numbersInfo = useAppSelector(
+    (state) => state.rangePickerReducer.numbersInfo.data,
+  );
+  const info = useAppSelector((state) => state.rangePickerReducer.numbersInfo);
+  console.log(numbersInfo);
+  console.log(info);
+
   return (
     <div className={styles.container}>
       <div className={styles.rangeDatePicker}>
@@ -14,39 +22,29 @@ const ReservationBlock: FC = () => {
       </div>
       <div className={styles.content}>
         <div className={styles.numbers}>
-          {reservNumbers.map((number: any) => (
-            <NumberReservation {...number} />
+          {numbersInfo.map((number: any, index: number) => (
+            <NumberReservation {...number} key={number.index} />
           ))}
         </div>
-        <div className={styles.reservationResult}>
-          <h3 className={styles.head}>
-            Ваше <br /> бронирование
-          </h3>
-          <div className={styles.line}></div>
-          <div className={styles.dates}>
-            <h3 className={styles.monthDays}>4 марта - 5 марта</h3>
-            <div className={styles.weekDays}>
-              <h4 className={styles.weekDay}>понедельник</h4>
-              <h4 className={styles.weekDay}>вторник</h4>
-            </div>
-          </div>
-          <div className={styles.line}></div>
-          <div className={styles.info}>
-            <div className={styles.typeAndExtra}>
-              <h3 className={styles.type}>STANDART</h3>
-              <h4 className={styles.extra}>
-                Дополнительное <br /> питание
-              </h4>
-            </div>
-            <div className={styles.sums}>
-              <p className={styles.mainSum}>2 300 000 сум</p>
-              <p className={styles.extraSum}>150 000 сум</p>
-            </div>
-          </div>
-          <div className={styles.line}></div>
-          <h2 className={styles.resultSum}>2 450 000 сум</h2>
-          <button className={styles.continueBtn}>Продолжить</button>
-        </div>
+        <ResultReserv />
+        {/*<video*/}
+        {/*  width="256"*/}
+        {/*  height="256"*/}
+        {/*  preload="none"*/}
+        {/*  style={{*/}
+        {/*    background:*/}
+        {/*      "transparent url('https://cdn-icons-png.flaticon.com/512/8112/8112937.png') 50% 50% / cover no-repeat",*/}
+        {/*  }}*/}
+        {/*  autoPlay*/}
+        {/*  loop*/}
+        {/*  muted*/}
+        {/*  playsInline*/}
+        {/*>*/}
+        {/*  <source*/}
+        {/*    src="https://cdn-icons-mp4.flaticon.com/512/8112/8112937.mp4"*/}
+        {/*    type="video/mp4"*/}
+        {/*  />*/}
+        {/*</video>*/}
       </div>
     </div>
   );

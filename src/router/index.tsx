@@ -2,8 +2,8 @@ import Home from "../pages/Home/Home";
 import Reservation from "../pages/Reservation/Reservation";
 
 export const RouteNames = {
-  HOME: "/api",
-  RESERVATION: "/",
+  HOME: "/",
+  RESERVATION: "/api/reservation/check",
 };
 
 export const publicRoutes = [

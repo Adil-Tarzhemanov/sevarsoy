@@ -5,7 +5,7 @@
     background: url("../../../../../public/assets/home/footer/footer.png") center center;
     -webkit-background-size: cover;
     background-size: cover;
-    margin-top: -200px;
+    margin-top: 50px;
 
     .wrapper {
         position: relative;
@@ -78,4 +78,8 @@
 
         }
     }
+}
+
+.marginTop {
+    margin-top: -200px;
 }

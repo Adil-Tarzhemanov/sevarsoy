@@ -9,7 +9,7 @@ const Reservation: FC = () => {
     <div className={styles.container}>
       <Quantities />
       <ReservationBlock />
-      <Footer />
+      {/*<Footer marginTop />*/}
     </div>
   );
 };

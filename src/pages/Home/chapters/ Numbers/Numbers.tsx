@@ -27,7 +27,7 @@ const Numbers: FC = () => {
       >
         {numbers.map((number) => {
           return (
-            <div className={styles.number}>
+            <div className={styles.number} key={number.title}>
               <img alt="number" src={number.img} className={styles.numberImg} />
               <div className={styles.numberDataWrapper}>
                 <h3 className={styles.title}>{number.title}</h3>

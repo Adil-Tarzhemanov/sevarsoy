@@ -21,6 +21,6 @@ export const furniture = [
     title: "Санитарно-гигиенические наборы",
   },
   {
-    title: "еще",
+    title: "еще...",
   },
 ];

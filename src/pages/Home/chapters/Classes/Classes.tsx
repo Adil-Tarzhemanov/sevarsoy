@@ -29,6 +29,7 @@ const Classes: FC = () => {
         <div className={styles.rests}>
           {classes.slice(0, visibleRests).map((rest, index) => (
             <motion.div
+              key={rest.id}
               className={classNames(styles.restWrapper, {
                 [styles.moreRestsActive]: moreRests,
               })}

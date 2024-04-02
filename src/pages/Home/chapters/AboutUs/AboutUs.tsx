@@ -38,7 +38,7 @@ const AboutUs: FC = () => {
             </h2>
           </div>
           {aboutUsInfo.map((element: any) => (
-            <AboutUsInfo {...element} />
+            <AboutUsInfo {...element} key={element.title} />
           ))}
         </motion.div>
       </div>

@@ -2,10 +2,20 @@ import styles from "./styles.module.scss";
 import { FC } from "react";
 import Logo from "../../../../components/Header/components/Logo/Logo.tsx";
 import { Link } from "react-scroll";
+import classNames from "classnames";
 
-const Footer: FC = () => {
+interface FooterTypeProps {
+  marginTop?: boolean;
+}
+
+const Footer: FC<FooterTypeProps> = ({ marginTop }) => {
   return (
-    <div className={styles.container} id="contacts">
+    <div
+      className={classNames(styles.container, {
+        [styles.marginTop]: marginTop,
+      })}
+      id="contacts"
+    >
       <div className={styles.wrapper}>
         <div className={styles.content}>
           <div className={styles.connection}>
@@ -15,17 +25,17 @@ const Footer: FC = () => {
             <div className={styles.socialMedias}>
               <img
                 alt="sm"
-                src="assets/home/footer/telegram.png"
+                src="/assets/home/footer/telegram.png"
                 className={styles.socialMedia}
               />
               <img
                 alt="sm"
-                src="assets/home/footer/instagram.png"
+                src="/assets/home/footer/instagram.png"
                 className={styles.socialMedia}
               />
               <img
                 alt="sm"
-                src="assets/home/footer/facebook.png"
+                src="/assets/home/footer/facebook.png"
                 className={styles.socialMedia}
               />
             </div>

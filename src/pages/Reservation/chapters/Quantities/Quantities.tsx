@@ -15,7 +15,7 @@ const Quantities: FC = () => {
       <h1 className={styles.head}>Бронирование номеров</h1>
       <div className={styles.quantities}>
         {quantities.map((quantity: any) => (
-          <Quantity {...quantity} />
+          <Quantity {...quantity} key={quantity.title} />
         ))}
       </div>
     </div>

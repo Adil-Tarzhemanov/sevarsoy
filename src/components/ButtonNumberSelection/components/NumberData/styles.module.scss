@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 0 15px;
+    margin-top: 10px;
 
     .titleAndDelete {
         display: flex;
@@ -11,7 +11,10 @@
         width: 100%;
 
         .numberDataTitle {
-            font-size: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: Montserrat;
+            color: #032E5C;
             align-self: flex-start;
         }
 
@@ -24,12 +27,16 @@
 
     .humansWrapper {
         display: flex;
-        justify-content: space-between;
+        gap: 10px;
         width: 100%;
+        margin-top: 10px;
 
         .adultsWrapper {
             .adultsTitle {
-                font-size: 14px;
+                font-size: 10px;
+                font-weight: 400;
+                font-family: Montserrat;
+                color: #032E5C;
             }
 
             .adults {
@@ -37,9 +44,10 @@
                 align-items: center;
                 justify-content: center;
                 gap: 20px;
-                border: 1px solid black;
-                width: 150px;
-                height: 40px;
+                border: 1px solid #98BDE2;
+                border-radius: 3px;
+                width: 118px;
+                height: 35px;
 
                 .minus {
                     font-size: 26px;

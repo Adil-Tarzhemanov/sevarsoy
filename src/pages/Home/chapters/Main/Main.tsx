@@ -3,29 +3,32 @@ import React, { FC, useEffect, useState } from "react";
 import ButtonDateRangePicker from "../../../../components/ButtonsDateRangePicker/ButtonsDateRangePicker";
 import ButtonNumberSelection from "../../../../components/ButtonNumberSelection/ButtonNumberSelection";
 import { useRoomsDataByMutation } from "../../../../api/queries/rooms/rooms.post";
-import { useAppSelector } from "../../../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import WeatherWidget from "../../../../components/WeatherWidget/WeatherWidget";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { dateForDB } from "../../../../helpers/date-YYYY-MM-DD.helper";
 
 const TITLE = "SEVARSOY";
 
 const Main: FC = () => {
+  const navigate = useNavigate();
   const roomsData = useAppSelector((state) => state.rangePickerReducer);
+  const dispatch = useAppDispatch();
   const roomsDataRequest = {
-    count_room: roomsData.numbers.length,
-    date_in: roomsData.dates[0],
-    date_out: roomsData.dates[1],
+    date_in: dateForDB(roomsData.dates[0]),
+    date_out: dateForDB(roomsData.dates[1]),
     people: roomsData.numbers.map((number: any) => ({
       adults: number.adults,
       childs: number.childs,
     })),
   };
   const {
-    data: roomsDataResponse,
-    // isError,
+    // data: roomsDataResponse,
+    isError,
     mutate,
-  } = useRoomsDataByMutation(roomsDataRequest);
+  } = useRoomsDataByMutation(roomsDataRequest, navigate, dispatch);
 
   const [displayedTitle, setDisplayedTitle] = useState("");
 
@@ -48,7 +51,7 @@ const Main: FC = () => {
     }
   }, [inViewText, displayedTitle]);
 
-  // if (isError) return <div>Error fetching data</div>;
+  if (isError) return <div>Error fetching data</div>;
 
   return (
     <div className={styles.container}>
