@@ -8,9 +8,14 @@ import { useRoomsDaysDataByQuery } from "../../api/queries/rooms/roomsDays.get";
 import RoomTypes from "./components/RoomTypes/RoomTypes";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAppDispatch } from "../../store/hooks";
-import { pickerDates } from "../../store/slices/rangePicker.slice";
+import {
+  endPickerDate,
+  pickerDates,
+  startPickerDate,
+} from "../../store/slices/rangePicker.slice";
+import { useWindowSize } from "../../hooks/windowSize";
 
-const { RangePicker } = DatePicker;
+// const { RangePicker } = DatePicker;
 
 interface BookingData {
   booked_day: string;
@@ -42,6 +47,15 @@ const CustomRangePicker: FC = () => {
 
   const dispatch = useAppDispatch();
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [dates, setDates] = useState([null, null]);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useEffect(() => {
     client.fetchQuery({ queryKey: ["roomsDays"] });
   }, [roomType]);
@@ -54,11 +68,21 @@ const CustomRangePicker: FC = () => {
     return { day, month };
   });
 
-  const handleChange = (dates: any, dateStrings: any) => {
-    console.log("Selected Dates:", dates);
-    console.log("Formatted Dates:", dateStrings);
+  // const handleDateChange = (value: any, dateString: any, type: any) => {
+  //   if (type === "start") setDates([dateString, dates[1]]);
+  //   else setDates([dates[0], dateString]);
+  // };
 
-    dispatch(pickerDates(dateStrings));
+  const handleChange = (dates: any, datesStrings: any) => {
+    dispatch(pickerDates(datesStrings));
+  };
+
+  const handleStartChange = (date: any, dateStrings: any) => {
+    dispatch(startPickerDate(dateStrings));
+  };
+
+  const handleEndChange = (date: any, dateStrings: any) => {
+    dispatch(endPickerDate(dateStrings));
   };
 
   const handleCalendarChange = (dates: any) => {
@@ -98,38 +122,59 @@ const CustomRangePicker: FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.pickerWrapper}>
-        <ConfigProvider locale={ruRU}>
-          {isInvalidRange && (
-            <div className={styles.error}>
-              <Alert
-                message="Недопустимый диапазон дат"
-                description="Выбранный диапазон содержит недопустимые даты."
-                type="error"
-                showIcon
-                style={{
-                  width: 367,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              />
-            </div>
-          )}
-          <DatePicker.RangePicker
-            style={{ width: 367, opacity: 0 }}
-            defaultValue={[null, null]}
+    // <div className={styles.container}>
+    //   <div className={styles.pickerWrapper}>
+    <ConfigProvider locale={ruRU}>
+      {isInvalidRange && (
+        <div className={styles.error}>
+          <Alert
+            message="Недопустимый диапазон дат"
+            description="Выбранный диапазон содержит недопустимые даты."
+            type="error"
+            showIcon
+            style={{
+              width: 367,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          />
+        </div>
+      )}
+      {windowWidth > 768 ? (
+        <DatePicker.RangePicker
+          style={{ width: "367px", opacity: 0 }}
+          defaultValue={[null, null]}
+          format="DD.MM.YY"
+          onChange={handleChange}
+          suffixIcon={<SwapRightOutlined />}
+          renderExtraFooter={() => <RoomTypes setRoomType={setRoomType} />}
+          onCalendarChange={handleCalendarChange}
+          disabledDate={handleDisabledDate}
+        />
+      ) : (
+        <div className={styles.smallWidthWrapper}>
+          <DatePicker
+            onChange={handleStartChange}
             format="DD.MM.YY"
-            onChange={handleChange}
             suffixIcon={<SwapRightOutlined />}
-            renderExtraFooter={() => <RoomTypes setRoomType={setRoomType} />}
-            onCalendarChange={handleCalendarChange}
+            placeholder="Начальная дата"
+            style={{ width: 177.5, height: 45 }}
             disabledDate={handleDisabledDate}
           />
-        </ConfigProvider>
-      </div>
-    </div>
+          <DatePicker
+            onChange={handleEndChange}
+            format="DD.MM.YY"
+            suffixIcon={<SwapRightOutlined />}
+            placeholder="Конечная дата"
+            style={{ width: 177.5 }}
+            disabledDate={handleDisabledDate}
+          />
+        </div>
+      )}
+    </ConfigProvider>
+    //   </div>
+    // </div>
   );
 };
 

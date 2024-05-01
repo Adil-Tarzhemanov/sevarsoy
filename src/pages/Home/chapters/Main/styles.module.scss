@@ -52,8 +52,11 @@
             }
 
             .rangeDatePicker {
-                display: flex;
-                gap: 5px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: 1fr;
+                grid-column-gap: 5px;
+                grid-row-gap: 0px;
                 position: relative;
                 z-index: 1;
 
@@ -65,12 +68,145 @@
                     height: 40px;
                 }
 
-                .searchBtn {
-                    width: 70px;
-                    height: 40px;
-                    border-radius: 4px;
-                    color: white;
-                    background: #597D9C;
+                .searchAndSelect {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: 1fr;
+                    grid-column-gap: 5px;
+                    grid-row-gap: 0px;
+
+                    .searchBtn {
+                        width: 70px;
+                        height: 40px;
+                        border-radius: 4px;
+                        color: white;
+                        background: #597D9C;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1250px) {
+    .container {
+        padding-top: 80px;
+        .content {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .container {
+        .content {
+            padding-left: 20px;
+            padding-right: 20px;
+            gap: 40px;
+            .infoAndRangePicker {
+                .mainTitle {
+                    font-size: 70px;
+                }
+
+                .mainText {
+                    font-size: 16px;
+                }
+
+                .rangeDatePicker {
+                    grid-template-columns: repeat(1, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    grid-column-gap: 5px;
+                    grid-row-gap: 15px;
+
+                    .searchAndSelect {
+                        .searchBtn {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        min-height: 568px;
+        max-height: 568px;
+        .content {
+            padding-bottom: 40px;
+            
+            .infoAndRangePicker {
+                .mainTitle {
+                    font-size: 46px;
+                    font-weight: 500;
+                }
+
+                .mainText {
+                    font-size: 16px;
+                }
+
+                .rangeDatePicker {
+                    grid-template-columns: repeat(1, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    grid-column-gap: 5px;
+                    grid-row-gap: 15px;
+
+                    .searchAndSelect {
+                        .searchBtn {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        .content {
+            .infoAndRangePicker {
+                .mainTitle {
+                    font-size: 40px;
+                }
+
+               .rangeDatePicker {
+                   max-width: 250px;
+                   display: flex;
+                   flex-direction: column;
+                   align-items: center;
+                   justify-content: center;
+
+                   .searchAndSelect {
+                       display: flex;
+                       flex-direction: column;
+                       gap: 15px;
+
+                       .searchBtn {
+                           line-height: 15px;
+                       }
+                   }
+               }
+            }
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .container {
+        .content {
+            .infoAndRangePicker {
+                .rangeDatePicker {
+                    .mainTitle {
+                        font-size: 10px;
+                    }
+
+                    .searchAndSelect {
+                        .searchBtn {
+                            line-height: 15px;
+                        }
+                    }
                 }
             }
         }

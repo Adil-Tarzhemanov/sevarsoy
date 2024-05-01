@@ -1,6 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
 import { instance } from "../../api";
-import { getNumbersInfo } from "../../../store/slices/rangePicker.slice";
+import {
+  addCode,
+  getNumbersInfo,
+} from "../../../store/slices/rangePicker.slice";
 import { reservNumbers } from "../../../constants/reservation/reservNumbers";
 
 const fetchRoomsData = async (dateValue: any) => {
@@ -34,6 +37,7 @@ export const useRoomsDataByMutation = (
           }),
         }),
       );
+      dispatch(addCode(res.code));
       console.log(res);
     },
   });

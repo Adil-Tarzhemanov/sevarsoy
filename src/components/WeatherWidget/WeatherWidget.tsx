@@ -23,7 +23,10 @@ const WeatherWidget = () => {
         scrolling="NO"
         // allowTransparency={true}
         sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
-        style={{ width: "460px", height: "593px" }}
+        style={{
+          width: "460px",
+          height: "593px",
+        }}
       ></iframe>
     </motion.div>
   );

@@ -1,12 +1,15 @@
 import styles from "./styles.module.scss";
-import { FC } from "react";
-import { useAppSelector } from "../../../../store/hooks";
+import React, { FC } from "react";
+import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import {
   dateDayFormatted,
   dateMonthFormatted,
 } from "../../../../helpers/date-MMMM.helper";
 import { priceForType } from "../../../../helpers/priceForType.helper";
 import { resultSum } from "../../../../helpers/resultSum.helper";
+import { dateForDB } from "../../../../helpers/date-YYYY-MM-DD.helper";
+import { useNavigate } from "react-router-dom";
+import { useRoomsDetailsByMutation } from "../../../../api/queries/rooms/secondStep.post";
 
 const ResultReserv: FC = () => {
   const dates = useAppSelector((state) => state.rangePickerReducer.dates);
@@ -14,6 +17,32 @@ const ResultReserv: FC = () => {
   const numbersInfo = useAppSelector(
     (state) => state.rangePickerReducer.numbersInfo,
   );
+  const roomsData = useAppSelector((state) => state.rangePickerReducer);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  // console.log(numbers);
+
+  const roomsDetailsRequest = {
+    code: roomsData.code,
+    date_in: dateForDB(roomsData.dates[0]),
+    date_out: dateForDB(roomsData.dates[1]),
+    people: roomsData.numbers.map((number: any) => ({
+      adults: number.adults,
+      childs: number.childs,
+      food: number.nutrition,
+      mattress: number.mattress,
+      room_type: number.type.charAt(0).toUpperCase() + number.type.slice(1),
+    })),
+  };
+
+  const { isError, mutate } = useRoomsDetailsByMutation(
+    roomsDetailsRequest,
+    navigate,
+    dispatch,
+  );
+
+  if (isError) return <div>Error fetching data</div>;
 
   return (
     <div className={styles.reservationResult}>
@@ -30,7 +59,9 @@ const ResultReserv: FC = () => {
           <h4 className={styles.weekDay}>{dateDayFormatted(dates[1])}</h4>
         </div>
       </div>
-      <div className={styles.line}></div>
+      {numbers.some((item: any) => item.type !== "none") && (
+        <div className={styles.line}></div>
+      )}
       {numbers.map((number: any) => {
         return (
           number.type !== "none" && (
@@ -69,11 +100,17 @@ const ResultReserv: FC = () => {
           )
         );
       })}
-      <div className={styles.line}></div>
-      <h2 className={styles.resultSum}>
-        {resultSum(numbers, numbersInfo)} сум
-      </h2>
-      <button className={styles.continueBtn}>Продолжить</button>
+      {numbers.some((item: any) => item.type !== "none") && (
+        <>
+          <div className={styles.line}></div>
+          <h2 className={styles.resultSum}>
+            {resultSum(numbers, numbersInfo)}сум
+          </h2>
+          <button className={styles.continueBtn} onClick={() => mutate()}>
+            Продолжить
+          </button>
+        </>
+      )}
     </div>
   );
 };

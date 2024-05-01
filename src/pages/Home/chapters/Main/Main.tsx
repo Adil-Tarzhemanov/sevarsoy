@@ -9,6 +9,7 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { dateForDB } from "../../../../helpers/date-YYYY-MM-DD.helper";
+import { useWindowSize } from "../../../../hooks/windowSize";
 
 const TITLE = "SEVARSOY";
 
@@ -24,11 +25,13 @@ const Main: FC = () => {
       childs: number.childs,
     })),
   };
-  const {
-    // data: roomsDataResponse,
-    isError,
-    mutate,
-  } = useRoomsDataByMutation(roomsDataRequest, navigate, dispatch);
+  const { isError, mutate } = useRoomsDataByMutation(
+    roomsDataRequest,
+    navigate,
+    dispatch,
+  );
+
+  const windowSize = useWindowSize();
 
   const [displayedTitle, setDisplayedTitle] = useState("");
 
@@ -81,13 +84,15 @@ const Main: FC = () => {
             transition={{ duration: 0.5 }}
           >
             <ButtonDateRangePicker />
-            <ButtonNumberSelection />
-            <button className={styles.searchBtn} onClick={() => mutate()}>
-              Найти
-            </button>
+            <div className={styles.searchAndSelect}>
+              <ButtonNumberSelection />
+              <button className={styles.searchBtn} onClick={() => mutate()}>
+                Найти {windowSize <= 720 && "номер"}
+              </button>
+            </div>
           </motion.div>
         </div>
-        <WeatherWidget />
+        {windowSize > 550 && <WeatherWidget />}
       </div>
     </div>
   );

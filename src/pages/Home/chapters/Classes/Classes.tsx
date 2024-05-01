@@ -5,10 +5,13 @@ import HeadChapter from "../../components/HeadChapter/HeadChapter";
 import classNames from "classnames";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { useWindowSize } from "../../../../hooks/windowSize";
 
 const Classes: FC = () => {
   const [moreRests, setMoreRests] = useState(false);
   const [visibleRests, setVisibleRests] = useState(5);
+
+  const windowSize = useWindowSize();
 
   const { ref: refClasses, inView: inViewClasses } = useInView({
     triggerOnce: true,
@@ -22,6 +25,14 @@ const Classes: FC = () => {
     }, 1000);
   };
 
+  // const onFiveRests = async () => {
+  //   // Анимируем скрытие элементов
+  //   setVisibleRests((prevCount) => prevCount - 20);
+  //   setTimeout(() => {
+  //     setMoreRests(false);
+  //   }, 1000); // Ожидаем завершения анимации перед изменением состояния
+  // };
+
   return (
     <div className={styles.container} id="classes">
       <HeadChapter title="Чем заняться на курорте" color={false} />
@@ -31,7 +42,7 @@ const Classes: FC = () => {
             <motion.div
               key={rest.id}
               className={classNames(styles.restWrapper, {
-                [styles.moreRestsActive]: moreRests,
+                [styles.moreRestsActive]: moreRests || windowSize < 1370,
               })}
               animate={
                 inViewClasses && visibleRests <= 5
@@ -70,87 +81,14 @@ const Classes: FC = () => {
             />
           </button>
         )}
+        {/*{moreRests && (*/}
+        {/*  <button className={styles.hide} onClick={() => onFiveRests()}>*/}
+        {/*    Скрыть*/}
+        {/*  </button>*/}
+        {/*)}*/}
       </div>
-      {/*<h2 className={styles.classesTitle}>Чем заняться на курорте</h2>*/}
-
-      {/*<div className={classNames(styles.mainClasses, styles.mainSwiper)}>*/}
-
-      {/*        {mainClasses.map((clas) => (*/}
-      {/*            <img src={clas.img} alt="class" className={styles.clasImg} />*/}
-      {/*        ))}*/}
-
-      {/*</div>*/}
-      {/*<div className={classNames(styles.minorClasses, styles.minorSwiper)}>*/}
-
-      {/*        {minorClasses.map((clas) => (*/}
-      {/*            <img src={clas.img} alt="class" />*/}
-      {/*        ))}*/}
-
-      {/*</div>*/}
     </div>
   );
 };
 
 export default Classes;
-
-// import styles from './styles.module.scss'
-// import {FC, useEffect, useRef} from "react"
-// import Slider from 'react-slick';
-// import 'slick-carousel/slick/slick.css';
-// import 'slick-carousel/slick/slick-theme.css';
-// import {mainClasses, minorClasses} from "../../../../constants/сlasses";
-// import classNames from "classnames";
-//
-// const Classes: FC = () => {
-//     const sliderRef = useRef(null);
-//
-//     const settings1 = {
-//         slidesToShow: 2,
-//         slidesToScroll: 1,
-//         infinite: true,
-//         centerMode: true,
-//         autoplay: true,
-//         speed: 8000,
-//         autoplaySpeed: 0,
-//         cssEase: 'linear',
-//         pauseOnHover: false,
-//         initialSlide: 1,
-//         swipeToSlide: true,
-//         className: styles.mainMySlider,
-//     };
-//     const settings2 = {
-//         rtl: true,
-//         slidesToShow: 4,
-//         slidesToScroll: 1,
-//         infinite: true,
-//         centerMode: true,
-//         autoplay: true,
-//         speed: 4000,
-//         autoplaySpeed: 0,
-//         cssEase: 'linear',
-//         pauseOnHover: false,
-//         initialSlide: 1,
-//         className: styles.mainMySlider,
-//     }
-//     return (
-//         <div className={styles.container}>
-//             <h2 className={styles.classesTitle}>Чем заняться на курорте</h2>
-//             <div className={classNames(styles.mainClasses, styles.mainSwiper)}>
-//                 <Slider {...settings1}>
-//                     {mainClasses.map((clas) => (
-//                         <img src={clas.img} alt="class" className={styles.clasImg} />
-//                     ))}
-//                 </Slider>
-//             </div>
-//             <div className={classNames(styles.minorClasses, styles.minorSwiper)}>
-//                 <Slider {...settings2}>
-//                     {minorClasses.map((clas) => (
-//                         <img src={clas.img} alt="class" />
-//                     ))}
-//                 </Slider>
-//             </div>
-//         </div>
-//     )
-// }
-//
-// export default Classes;

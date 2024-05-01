@@ -2,16 +2,11 @@ import styles from "./styles.module.scss";
 import React, { FC, useState } from "react";
 import NumberSelection from "../NumberSelection/NumberSelection";
 import { useAppSelector } from "../../store/hooks";
+import { allAdults, allChilds } from "../../helpers/guest-count.helper";
 
 const ButtonNumberSelection: FC = () => {
   const [isNumberVisible, setIsNumberVisible] = useState(false);
   const numbers = useAppSelector((state) => state.rangePickerReducer.numbers);
-  const allAdults = numbers.reduce((sum: number, number: any) => {
-    return (sum += number.adults);
-  }, 0);
-  const allChilds = numbers.reduce((sum: number, number: any) => {
-    return (sum += number.childs);
-  }, 0);
 
   return (
     <div className={styles.container}>
@@ -28,7 +23,7 @@ const ButtonNumberSelection: FC = () => {
           <div className={styles.titleAndQuantity}>
             <p className={styles.title}>Гости</p>
             <p className={styles.adultsAndChildren}>
-              {allAdults} гостей, {allChilds} детей
+              {allAdults(numbers)} гостей, {allChilds(numbers)} детей
             </p>
           </div>
         </div>

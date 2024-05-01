@@ -21,6 +21,8 @@
             gap: 25px;
             min-height: 220px;
             padding-bottom: 70px;
+            padding-left: 20px;
+            padding-right: 20px;
 
             .restWrapper {
                 position: relative;
@@ -99,48 +101,12 @@
             }
         }
     }
+}
 
-    .mainSwiper {
-        width: 100%;
-        padding: 50px 20px 25px;
-
-        //.mainMySwiper {
-        //    .mainSwiperSlide {
-        //        background-position: center;
-        //        background-size: cover;
-        //        max-width: 758px;
-        //        max-height: 565px;
-
-                img {
-                    display: block;
-                    max-width: 758px;
-                    width: 100%;
-                    height: auto;
-                    padding: 0 15px;
-                }
-        //    }
-        //}
-    }
-
-    .minorSwiper {
-        width: 100%;
-        padding: 0px 20px;
-
-        //.minorMySwiper {
-        //    .minorSwiperSlide {
-        //        background-position: center;
-        //        background-size: cover;
-        //        max-width: 467px;
-        //        max-height: 232px;
-
-                img {
-                    display: block;
-                    width: 100%;
-                    max-width: 467px;
-                    height: auto;
-                    padding: 0 15px;
-                }
-        //    }
-        //}
+@media (max-width: 700px) {
+    .container {
+        .content {
+            margin-top: 0;
+        }
     }
 }

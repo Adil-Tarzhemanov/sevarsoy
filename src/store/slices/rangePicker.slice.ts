@@ -7,12 +7,16 @@ import dayjs from "dayjs";
 interface RangePickerState {
   dates: any;
   numbers: any;
+  resultNumbers: any;
   numbersInfo: any;
-  // extraInfo: any;
+  code: any;
+  totalPrice: any;
+  guestsCountNumber: any;
 }
 
 const initialState: RangePickerState = {
   dates: [dayjs(Date()).format("DD.MM.YY"), dayjs(Date()).format("DD.MM.YY")],
+  guestsCountNumber: [],
   numbers: [
     {
       index: 1,
@@ -22,29 +26,20 @@ const initialState: RangePickerState = {
       mattress: 0,
       nutrition: 0,
       type: "none",
+      // guestsInfo: [
+      // {
+      //   reservation_id: null,
+      //   name: "",
+      //   lastName: "",
+      //   fatherName: "",
+      // },
+      // ],
     },
   ],
+  resultNumbers: [],
   numbersInfo: [],
-  // extraInfo: [
-  //   {
-  //     index: 1,
-  //     mattress: 0,
-  //     nutrition: 0,
-  //     countQuests: 1,
-  //   },
-  //   {
-  //     index: 2,
-  //     mattress: 0,
-  //     nutrition: 0,
-  //     countQuests: 1,
-  //   },
-  //   {
-  //     index: 3,
-  //     mattress: 0,
-  //     nutrition: 0,
-  //     countQuests: 1,
-  //   },
-  // ],
+  code: "",
+  totalPrice: "",
 };
 
 export const RangePickerSlice = createSlice({
@@ -53,6 +48,25 @@ export const RangePickerSlice = createSlice({
   reducers: {
     pickerDates(state, action: PayloadAction<IPickerDates[]>) {
       state.dates = action.payload;
+    },
+    startPickerDate(state, action) {
+      state.dates[0] = action.payload;
+    },
+    endPickerDate(state, action) {
+      state.dates[1] = action.payload;
+    },
+    addCode(state, action) {
+      state.code = action.payload;
+    },
+    getGuestsCountNumber(state, action) {
+      state.guestsCountNumber = action.payload;
+    },
+    getNumbers(state, action) {
+      // state.numbers = [];
+      state.resultNumbers = action.payload;
+    },
+    getTotalPrice(state, action) {
+      state.totalPrice = action.payload;
     },
     addNumber(state, action) {
       state.numbers = [...state.numbers, action.payload];
@@ -217,6 +231,8 @@ export const RangePickerSlice = createSlice({
 
 export const {
   pickerDates,
+  startPickerDate,
+  endPickerDate,
   addNumber,
   deleteNumber,
   increaseAdults,
@@ -229,6 +245,10 @@ export const {
   decreaseExtraNutrition,
   typeSelection,
   getNumbersInfo,
+  addCode,
+  getTotalPrice,
+  getNumbers,
+  getGuestsCountNumber,
 } = RangePickerSlice.actions;
 
 export const selectCount = (state: RootState) => state.rangePickerReducer;

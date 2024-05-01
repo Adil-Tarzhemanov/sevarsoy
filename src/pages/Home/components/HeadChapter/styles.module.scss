@@ -26,3 +26,11 @@
         color: white;
     }
 }
+
+@media (max-width: 700px) {
+    .container {
+        .numbersTitle {
+            font-size: 22px;
+        }
+    }
+}

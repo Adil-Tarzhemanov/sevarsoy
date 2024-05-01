@@ -20,6 +20,8 @@
         gap: 30px;
         align-items: flex-start;
         margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
 
         .bigNew {
         }
@@ -41,4 +43,18 @@
         margin-top: 34px;
         margin-right: 19px;
     }
+}
+
+@media (max-width: 1260px) {
+    .container {
+        padding-bottom: 40px;
+        
+        .news {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    
 }

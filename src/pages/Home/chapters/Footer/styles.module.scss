@@ -17,15 +17,18 @@
         .content {
             display: flex;
             align-items: flex-start;
-            gap: 219px;
+            gap: 119px;
             position: absolute;
             //left: 85px;
             bottom: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
 
             .connection {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                margin-right: 100px;
 
                 .socialMedias {
                     display: flex;
@@ -82,4 +85,53 @@
 
 .marginTop {
     margin-top: -200px;
+}
+
+@media (max-width: 950px) {
+    .marginTop {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 890px) {
+    .container {
+        .wrapper {
+            .content {
+                gap: 100px;
+
+                .connection {
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        .wrapper {
+            .content {
+                gap: 50px;
+
+                .connection {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 440px) {
+    .container {
+        .wrapper {
+            .content {
+                gap: 20px;
+
+                .connection {
+                    margin-right: 10px;
+                    margin-left: -35px;
+                }
+            }
+        }
+    }
 }

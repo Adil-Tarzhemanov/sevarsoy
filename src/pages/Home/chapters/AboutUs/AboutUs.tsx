@@ -4,6 +4,7 @@ import AboutUsInfo from "./components/aboutUsInfo/AboutUsInfo";
 import { aboutUsInfo } from "../../../../constants/home/aboutUsInfo";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { useWindowSize } from "../../../../hooks/windowSize";
 
 const AboutUs: FC = () => {
   const { ref, inView } = useInView({
@@ -11,20 +12,24 @@ const AboutUs: FC = () => {
     threshold: 0.5,
   });
 
+  const windowSize = useWindowSize();
+
   return (
     <div className={styles.container} id="aboutUs">
       <div className={styles.content}>
-        <div className={styles.backgroundAndImg} ref={ref}>
-          <div className={styles.blueBack}></div>
-          <motion.img
-            alt="Sevarsoy"
-            src="assets/home/aboutUs/back.png"
-            className={styles.aboutUsImg}
-            animate={inView && { y: 0, x: 0, opacity: 1 }}
-            initial={{ y: -200, x: -200, opacity: 0 }}
-            transition={{ duration: 0.7 }}
-          />
-        </div>
+        {windowSize > 1360 && (
+          <div className={styles.backgroundAndImg} ref={ref}>
+            <div className={styles.blueBack}></div>
+            <motion.img
+              alt="Sevarsoy"
+              src="assets/home/aboutUs/back.png"
+              className={styles.aboutUsImg}
+              animate={inView && { y: 0, x: 0, opacity: 1 }}
+              initial={{ y: -200, x: -200, opacity: 0 }}
+              transition={{ duration: 0.7 }}
+            />
+          </div>
+        )}
         <motion.div
           className={styles.infoWrapper}
           ref={ref}

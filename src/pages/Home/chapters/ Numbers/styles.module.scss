@@ -88,3 +88,13 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .container {
+        .numbers {
+            min-width: 0;
+            max-width: 360px;
+            flex-wrap: wrap;
+        }
+    }
+}

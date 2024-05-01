@@ -2,3 +2,19 @@
     position: absolute;
     top: -135px;
 }
+
+.smallWidthWrapper {
+    display: flex;
+    gap: 10px;
+    max-width: 367px;
+    width: 100%;
+    opacity: 0;
+}
+
+@media (max-width: 400px) {
+    .smallWidthWrapper {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 50px;
+    }
+}

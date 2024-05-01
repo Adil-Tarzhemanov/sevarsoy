@@ -1,12 +1,14 @@
 .container {
     position: relative;
-    width: 181px;
+    width: 100%;
+    min-width: 181px;
 }
 
 .quantity {
     display: flex;
     align-items: center;
-    width: 181px;
+    width: 100%;
+    min-width: 181px;
     height: 40px;
     background: #fff;
     border-radius: 4px;
