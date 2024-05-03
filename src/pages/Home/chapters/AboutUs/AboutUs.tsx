@@ -17,19 +17,17 @@ const AboutUs: FC = () => {
   return (
     <div className={styles.container} id="aboutUs">
       <div className={styles.content}>
-        {windowSize > 1360 && (
-          <div className={styles.backgroundAndImg} ref={ref}>
-            <div className={styles.blueBack}></div>
-            <motion.img
-              alt="Sevarsoy"
-              src="assets/home/aboutUs/back.png"
-              className={styles.aboutUsImg}
-              animate={inView && { y: 0, x: 0, opacity: 1 }}
-              initial={{ y: -200, x: -200, opacity: 0 }}
-              transition={{ duration: 0.7 }}
-            />
-          </div>
-        )}
+        <div className={styles.backgroundAndImg} ref={ref}>
+          {windowSize > 1360 && <div className={styles.blueBack}></div>}
+          <motion.img
+            alt="Sevarsoy"
+            src="assets/home/aboutUs/back.png"
+            className={styles.aboutUsImg}
+            animate={inView && { y: 0, x: 0, opacity: 1 }}
+            initial={{ y: -200, x: -200, opacity: 0 }}
+            transition={{ duration: 0.7 }}
+          />
+        </div>
         <motion.div
           className={styles.infoWrapper}
           ref={ref}

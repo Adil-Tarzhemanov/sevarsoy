@@ -161,6 +161,7 @@ const CustomRangePicker: FC = () => {
             placeholder="Начальная дата"
             style={{ width: 177.5, height: 45 }}
             disabledDate={handleDisabledDate}
+            placement="bottomRight"
           />
           <DatePicker
             onChange={handleEndChange}
@@ -169,6 +170,7 @@ const CustomRangePicker: FC = () => {
             placeholder="Конечная дата"
             style={{ width: 177.5 }}
             disabledDate={handleDisabledDate}
+            placement="bottomRight"
           />
         </div>
       )}

@@ -1,16 +1,19 @@
 import styles from "./styles.module.scss";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../../../../store/hooks";
 import { resultSum } from "../../../../../../helpers/resultSum.helper";
 import { useNavigate } from "react-router-dom";
 import { dateForDB } from "../../../../../../helpers/date-YYYY-MM-DD.helper";
 import { useRoomsDetailsByMutation } from "../../../../../../api/queries/rooms/secondStep.post";
+import ResultReserv from "../../../ResultReserv/ResultReserv";
 
 const MobileResultReserv: FC = () => {
   const numbers = useAppSelector((state) => state.rangePickerReducer.numbers);
   const numbersInfo = useAppSelector(
     (state) => state.rangePickerReducer.numbersInfo,
   );
+
+  const [activeResult, setActiveResult] = useState(false);
 
   const roomsData = useAppSelector((state) => state.rangePickerReducer);
   const navigate = useNavigate();
@@ -43,7 +46,12 @@ const MobileResultReserv: FC = () => {
     <>
       {numbers.some((item: any) => item.type !== "none") && (
         <div className={styles.container}>
-          <div className={styles.left}>
+          {activeResult && (
+            <div className={styles.modalWindow}>
+              <ResultReserv />
+            </div>
+          )}
+          <div className={styles.left} onClick={() => setActiveResult(true)}>
             <img
               src="/assets/reservation/basket.png"
               alt="basket"

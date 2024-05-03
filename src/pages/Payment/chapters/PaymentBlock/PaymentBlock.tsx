@@ -7,6 +7,7 @@ import { allGuest } from "../../../../helpers/guest-count.helper";
 import { useGuestsInfoByMutation } from "../../../../api/queries/rooms/lastStep.post";
 import { useWindowSize } from "../../../../hooks/windowSize";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 export interface GuestInput {
   name: string;
@@ -50,6 +51,8 @@ const PaymentBlock: FC = () => {
   console.log(guests.flatMap((guest) => guest));
 
   const windowSize = useWindowSize();
+
+  const baseString = `m=662fefa6d8b2a6cf1b679f96;ac.code=${data.code};a=${data.totalPrice}`;
 
   return (
     <div className={styles.container}>
@@ -168,7 +171,12 @@ const PaymentBlock: FC = () => {
           <h4 className={styles.toPayText}>К оплате</h4>
           <h3 className={styles.resultSum}>{data.totalPrice} сумм</h3>
           <button className={styles.bookBtn} onClick={() => mutate()}>
-            Забронировать
+            <Link
+              to={`https://test.paycom.uz/${btoa(baseString)}`}
+              className={styles.link}
+            >
+              Забронировать
+            </Link>
           </button>
         </div>
       </div>

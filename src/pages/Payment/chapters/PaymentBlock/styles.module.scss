@@ -258,6 +258,11 @@ $color: #032E5C;
               display: flex;
               justify-content: center;
               align-items: center;
+
+              .link {
+                  text-decoration: none;
+                  color: white;
+              }
           }
         }
     }
@@ -266,8 +271,8 @@ $color: #032E5C;
 @media (max-width: 650px) {
     .container {
         .reservDetails {
-            flex-direction: column;
             padding-top: 20px;
+            flex-direction: column;
             padding-bottom: 20px;
 
             .result {
@@ -278,6 +283,12 @@ $color: #032E5C;
                 .info {
                     text-align: center;
                 }
+            }
+        }
+
+        .payment {
+            .leftPart {
+                margin-top: 20px;
             }
         }
 
@@ -307,6 +318,10 @@ $color: #032E5C;
                     .agreeText {
                         hyphens: auto;
                     }
+                }
+
+                .allSumText {
+                    hyphens: auto;
                 }
             }
 

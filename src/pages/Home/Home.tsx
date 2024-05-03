@@ -14,7 +14,7 @@ const Home: FC = () => {
       <Main />
       <AboutUs />
       <Classes />
-      {/*<Numbers />*/}
+      <Numbers />
       {/*<News />*/}
       <Footer />
     </div>
