@@ -1,10 +1,15 @@
 import styles from "./styles.module.scss";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import CustomRangePicker from "../CustomRangePicker/CustomRangePicker";
 import { useAppSelector } from "../../store/hooks";
 
 const ButtonDateRangePicker: FC = () => {
   const dates = useAppSelector((state) => state.rangePickerReducer.dates);
+
+  useEffect(() => {
+    const json = JSON.stringify(dates);
+    localStorage.setItem("dates", json);
+  }, [dates]);
 
   return (
     <div className={styles.container}>

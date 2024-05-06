@@ -12,6 +12,7 @@ const MobileResultReserv: FC = () => {
   const numbersInfo = useAppSelector(
     (state) => state.rangePickerReducer.numbersInfo,
   );
+  const dates = useAppSelector((state) => state.rangePickerReducer.dates);
 
   const [activeResult, setActiveResult] = useState(false);
 
@@ -34,13 +35,13 @@ const MobileResultReserv: FC = () => {
     })),
   };
 
-  const { isError, mutate } = useRoomsDetailsByMutation(
+  const { isError, error, mutate } = useRoomsDetailsByMutation(
     roomsDetailsRequest,
     navigate,
     dispatch,
   );
-
-  if (isError) return <div>Error fetching data</div>;
+  console.log(error);
+  if (isError) return <div>{error.message}</div>;
 
   return (
     <>
@@ -62,7 +63,7 @@ const MobileResultReserv: FC = () => {
                 {numbers.length} {numbers.length < 2 ? "номер" : "номера"}
               </h4>
               <h3 className={styles.sum}>
-                {resultSum(numbers, numbersInfo)} сум
+                {resultSum(numbers, numbersInfo, dates)} сум
               </h3>
             </div>
           </div>

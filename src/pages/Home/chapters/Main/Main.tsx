@@ -45,6 +45,11 @@ const Main: FC = () => {
   });
 
   useEffect(() => {
+    const json = JSON.stringify(roomsData);
+    localStorage.setItem("roomsData", json);
+  }, [roomsData]);
+
+  useEffect(() => {
     if (inViewText && displayedTitle.length < TITLE.length) {
       const intervalId = setInterval(() => {
         setDisplayedTitle((prev) => TITLE.substring(0, prev.length + 1));
@@ -58,7 +63,7 @@ const Main: FC = () => {
 
   return (
     <div className={styles.container}>
-      <video autoPlay muted loop className={styles.videoBackground}>
+      <video autoPlay muted loop playsInline className={styles.videoBackground}>
         <source src="assets/home/mainVideo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -92,7 +97,7 @@ const Main: FC = () => {
             </div>
           </motion.div>
         </div>
-        {windowSize > 550 && <WeatherWidget />}
+        {/*<WeatherWidget />*/}
       </div>
     </div>
   );

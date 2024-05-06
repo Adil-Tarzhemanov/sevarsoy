@@ -26,13 +26,6 @@
             color: #032E5C;
         }
 
-        .line {
-            margin-top: 3px;
-            width: 248px;
-            height: 1px;
-            background: #A3A3A3;
-        }
-
         .numbersData {
             display: flex;
             flex-direction: column;
@@ -46,9 +39,28 @@
 
         .saveAndAddNumber {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             width: 100%;
-            padding: 20px 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            .addBtn {
+                width: 139px;
+                font-size: 12px;
+                color: #98bde2;
+                border: 1px solid #98bde2;
+                border-radius: 3px;
+                padding: 5px 10px;
+            }
+
+            .done {
+                width: 87px;
+                color: white;
+                background: #98bde2;
+                padding-left: 15px;
+                padding-right: 15px;
+                border-radius: 3px;
+            }
         }
     }
 }

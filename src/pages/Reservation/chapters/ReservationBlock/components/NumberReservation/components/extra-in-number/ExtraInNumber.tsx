@@ -25,6 +25,11 @@ const ExtraInNumber: FC<any> = ({ index }) => {
   const nutritionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const json = JSON.stringify(numbers);
+    localStorage.setItem("numbers", json);
+  }, [numbers]);
+
+  useEffect(() => {
     const handleClickOutside = (event: any) => {
       if (mattressRef.current && !mattressRef.current.contains(event.target)) {
         setIsMattresses(false);

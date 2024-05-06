@@ -94,10 +94,29 @@
             font-size: 18px;
             font-weight: 600;
             letter-spacing: 2px;
+            color: #032E5C;
 
             .arrow {
                 padding-top: 2px;
                 width: 15px;
+                transform:rotate(90deg);
+            }
+        }
+
+        .hide {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: -45px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #032E5C;
+
+            .arrow {
+                padding-top: 2px;
+                width: 15px;
+                transform:rotate(-90deg);
             }
         }
     }

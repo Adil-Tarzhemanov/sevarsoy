@@ -51,6 +51,11 @@ const CustomRangePicker: FC = () => {
   const [dates, setDates] = useState([null, null]);
 
   useEffect(() => {
+    const json = JSON.stringify(dates);
+    localStorage.setItem("localDates", json);
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

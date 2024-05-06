@@ -25,13 +25,13 @@ const Classes: FC = () => {
     }, 1000);
   };
 
-  // const onFiveRests = async () => {
-  //   // Анимируем скрытие элементов
-  //   setVisibleRests((prevCount) => prevCount - 20);
-  //   setTimeout(() => {
-  //     setMoreRests(false);
-  //   }, 1000); // Ожидаем завершения анимации перед изменением состояния
-  // };
+  const onFiveRests = async () => {
+    // Анимируем скрытие элементов
+    setVisibleRests((prevCount) => prevCount - 20);
+    setTimeout(() => {
+      setMoreRests(false);
+    }, 1000); // Ожидаем завершения анимации перед изменением состояния
+  };
 
   return (
     <div className={styles.container} id="classes">
@@ -50,7 +50,7 @@ const Classes: FC = () => {
                   : { opacity: 1, y: 0 }
               }
               initial={
-                visibleRests <= 5
+                visibleRests <= 5 && windowSize > 1000
                   ? { y: rest.y, x: rest.x, opacity: 0 }
                   : { opacity: 0, y: 20 }
               }
@@ -71,7 +71,7 @@ const Classes: FC = () => {
             </motion.div>
           ))}
         </div>
-        {visibleRests < classes.length && (
+        {visibleRests < classes.length ? (
           <button className={styles.moreRestsBtn} onClick={() => onMoreRests()}>
             Подробнее
             <img
@@ -80,12 +80,16 @@ const Classes: FC = () => {
               className={styles.arrow}
             />
           </button>
+        ) : (
+          <button className={styles.hide} onClick={() => onFiveRests()}>
+            Скрыть
+            <img
+              alt="arrow"
+              src="assets/home/arrow.png"
+              className={styles.arrow}
+            />
+          </button>
         )}
-        {/*{moreRests && (*/}
-        {/*  <button className={styles.hide} onClick={() => onFiveRests()}>*/}
-        {/*    Скрыть*/}
-        {/*  </button>*/}
-        {/*)}*/}
       </div>
     </div>
   );

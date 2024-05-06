@@ -51,9 +51,9 @@ const NumberData: FC<NumberDataProps> = ({
       <div className={styles.titleAndDelete}>
         <h4 className={styles.numberDataTitle}>Номер {index}</h4>
         {isDeleteNumber && (
-          <h4 className={styles.deleteBtn} onClick={() => onDeleteNumber()}>
-            Удалить
-          </h4>
+          <button className={styles.deleteBtn} onClick={() => onDeleteNumber()}>
+            <img src="/assets/delete.png" />
+          </button>
         )}
       </div>
       <div className={styles.humansWrapper}>

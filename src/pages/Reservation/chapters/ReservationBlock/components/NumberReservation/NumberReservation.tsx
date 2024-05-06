@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { furniture } from "../../../../../../constants/reservation/furnitures";
 import FurnitureElement from "../FurnitureElement/FurnitureElement";
 import NumberSlider from "./components/number-slider/NumberSlider";
@@ -10,6 +10,11 @@ import { typeSelection } from "../../../../../../store/slices/rangePicker.slice"
 const NumberReservation: FC<any> = ({ type, count, price, imgs, index }) => {
   const numbers = useAppSelector((state) => state.rangePickerReducer.numbers);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const json = JSON.stringify(numbers);
+    localStorage.setItem("numbers", json);
+  }, []);
 
   return (
     <div className={styles.numberReservation}>

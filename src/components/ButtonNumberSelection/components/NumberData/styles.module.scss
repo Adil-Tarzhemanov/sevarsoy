@@ -21,6 +21,7 @@
         .deleteBtn {
             font-size: 16px;
             cursor: pointer;
+            width: 16px;
         }
     }
 
@@ -58,5 +59,16 @@
                 }
             }
         }
+    }
+
+    .line {
+        margin-top: 1px;
+        width: 248px;
+        height: 1px;
+        background: #A3A3A3;
+    }
+
+    .numberLine {
+        margin-top: 10px;
     }
 }

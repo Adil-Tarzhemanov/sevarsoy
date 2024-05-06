@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import ButtonDateRangePicker from "../../../../components/ButtonsDateRangePicker/ButtonsDateRangePicker";
 import ButtonNumberSelection from "../../../../components/ButtonNumberSelection/ButtonNumberSelection";
 import NumberReservation from "./components/NumberReservation/NumberReservation";
@@ -13,6 +13,11 @@ const ReservationBlock: FC = () => {
   const numbersInfo = useAppSelector(
     (state) => state.rangePickerReducer.numbersInfo.data,
   );
+
+  useEffect(() => {
+    const json = JSON.stringify(numbersInfo);
+    localStorage.setItem("numbersInfo", json);
+  }, [numbersInfo]);
 
   const windowSize = useWindowSize();
 

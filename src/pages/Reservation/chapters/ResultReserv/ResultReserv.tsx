@@ -41,8 +41,8 @@ const ResultReserv: FC = () => {
     navigate,
     dispatch,
   );
-
-  if (isError) return <div>Error fetching data</div>;
+  console.log(isError);
+  if (isError) return <div>{isError}</div>;
 
   return (
     <div className={styles.reservationResult}>
@@ -104,7 +104,7 @@ const ResultReserv: FC = () => {
         <>
           <div className={styles.line}></div>
           <h2 className={styles.resultSum}>
-            {resultSum(numbers, numbersInfo)}сум
+            {resultSum(numbers, numbersInfo, dates)}сум
           </h2>
           <button className={styles.continueBtn} onClick={() => mutate()}>
             Продолжить

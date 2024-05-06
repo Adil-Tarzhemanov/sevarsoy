@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import NumberData from "../ButtonNumberSelection/components/NumberData/NumberData";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { addNumber } from "../../store/slices/rangePicker.slice";
+import classNames from "classnames";
 
 interface NumberSelectionProps {
   setIsNumberVisible: any;
@@ -37,10 +38,15 @@ const NumberSelection: FC<NumberSelectionProps> = ({ setIsNumberVisible }) => {
           ))}
         </div>
         <div className={styles.saveAndAddNumber}>
-          <button onClick={() => onAddNumber()}>
+          <button onClick={() => onAddNumber()} className={styles.addBtn}>
             + Добавить ещё <br /> номер
           </button>
-          <button onClick={() => setIsNumberVisible(false)}>Готово</button>
+          <button
+            onClick={() => setIsNumberVisible(false)}
+            className={styles.done}
+          >
+            Готово
+          </button>
         </div>
       </div>
     </div>

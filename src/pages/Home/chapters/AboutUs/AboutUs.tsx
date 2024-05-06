@@ -24,7 +24,7 @@ const AboutUs: FC = () => {
             src="assets/home/aboutUs/back.png"
             className={styles.aboutUsImg}
             animate={inView && { y: 0, x: 0, opacity: 1 }}
-            initial={{ y: -200, x: -200, opacity: 0 }}
+            initial={windowSize > 1000 && { y: -200, x: -200, opacity: 0 }}
             transition={{ duration: 0.7 }}
           />
         </div>
@@ -32,7 +32,7 @@ const AboutUs: FC = () => {
           className={styles.infoWrapper}
           ref={ref}
           animate={inView && { y: 0, x: 0, opacity: 1 }}
-          initial={{ y: -200, x: 200, opacity: 0 }}
+          initial={windowSize > 1000 && { y: -200, x: 200, opacity: 0 }}
           transition={{ duration: 0.7 }}
         >
           <div className={styles.headWrapper}>

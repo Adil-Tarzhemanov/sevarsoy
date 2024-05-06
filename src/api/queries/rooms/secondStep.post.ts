@@ -13,8 +13,8 @@ const fetchRoomsDetails = async (dateValue: any) => {
       dateValue,
     );
     return data;
-  } catch (error) {
-    throw new Error("Failed to details");
+  } catch (error: any) {
+    throw new Error(error.message);
   }
 };
 
